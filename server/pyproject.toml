@@ -1,0 +1,20 @@
+[project]
+name = "pragmalab-server"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Botirali Jalolov", email = "botirali.jalolov@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=1.9.0",
+    "fastapi[standard]>=0.141.1",
+    "python-dotenv>=1.2.3",
+]
+
+[project.scripts]
+pragmalab-server = "pragmalab_server:main"
+
+[build-system]
+requires = ["uv_build>=0.12.20,<0.13.0"]
+build-backend = "uv_build"

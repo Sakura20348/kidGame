@@ -1,0 +1,367 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/raleway";
+@import "@fontsource-variable/source-serif-4";
+@import "@fontsource-variable/fredoka";
+@import "@fontsource-variable/roboto-mono";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+    /* LittleReaderLab palette – sky blue, sunny yellow, fresh lime */
+    --background: #FBFDFF;
+    --foreground: #1A2433;
+    --card: #FFFFFF;
+    --card-foreground: #1A2433;
+    --popover: #FFFFFF;
+    --popover-foreground: #1A2433;
+    --primary: #1F5FBF;
+    --primary-foreground: #FFFFFF;
+    --secondary: #F2F6FB;
+    --secondary-foreground: #1A2433;
+    --muted: #F2F6FB;
+    --muted-foreground: #5B6878;
+    --accent: #EAF2FC;
+    --accent-foreground: #1A2433;
+    --destructive: #C0392B;
+    --border: #DCE5F0;
+    --input: #DCE5F0;
+    --ring: #1F5FBF;
+    --page: #F2F7FD;
+    --field: #F2F6FB;
+    --hint: #95A3B5;
+    --link: #1F5FBF;
+    --logo: #173A6B;
+    --brand-start: #1C5CC4;
+    --brand-end: #6FB6F4;
+    --hero-start: #D6EBFF;
+    --hero-end: #F2F9FF;
+    --lime: #D4F58A;
+    --sun: #FFD166;
+    --green-900: #17479A; /* deep sky blue (name kept for older classes) */
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.141 0.005 285.823);
+    --sidebar-primary: oklch(0.596 0.145 163.225);
+    --sidebar-primary-foreground: oklch(0.979 0.021 166.113);
+    --sidebar-accent: oklch(0.967 0.001 286.375);
+    --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+    --sidebar-border: oklch(0.92 0.004 286.32);
+    --sidebar-ring: oklch(0.705 0.015 286.067);
+}
+
+.dark {
+    /* LittleReaderLab palette – night sky */
+    --background: #0B1020;
+    --foreground: #E6ECF7;
+    --card: #131A2E;
+    --card-foreground: #E6ECF7;
+    --popover: #131A2E;
+    --popover-foreground: #E6ECF7;
+    --primary: #2F6FD6;
+    --primary-foreground: #FFFFFF;
+    --secondary: #161E35;
+    --secondary-foreground: #E6ECF7;
+    --muted: #161E35;
+    --muted-foreground: #9AA7C0;
+    --accent: #1B2542;
+    --accent-foreground: #E6ECF7;
+    --destructive: #FF7B6B;
+    --border: #263150;
+    --input: #263150;
+    --ring: #8DBBFF;
+    --page: #0B1020;
+    --field: #161E35;
+    --hint: #6B7894;
+    --link: #8DBBFF;
+    --logo: #E6ECF7;
+    --brand-start: #070B1F;
+    --brand-end: #28306E;
+    --hero-start: #121B3A;
+    --hero-end: #1C2754;
+    --lime: #D4F58A;
+    --sun: #FFD166;
+    --green-900: #17479A; /* deep sky blue (name kept for older classes) */
+    --chart-1: oklch(0.809 0.105 251.813);
+    --chart-2: oklch(0.623 0.214 259.815);
+    --chart-3: oklch(0.546 0.245 262.881);
+    --chart-4: oklch(0.488 0.243 264.376);
+    --chart-5: oklch(0.424 0.199 265.638);
+    --sidebar: oklch(0.21 0.006 285.885);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.696 0.17 162.48);
+    --sidebar-primary-foreground: oklch(0.262 0.051 172.552);
+    --sidebar-accent: oklch(0.274 0.006 286.033);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.552 0.016 285.938);
+}
+
+@theme inline {
+    --font-sans: 'Inter Variable', sans-serif;
+    --font-heading: 'Raleway Variable', sans-serif;
+    --font-serif: 'Source Serif 4 Variable', Georgia, serif;
+    --font-kids: 'Fredoka Variable', 'Inter Variable', sans-serif;
+    --font-mono: 'Roboto Mono Variable', ui-monospace, monospace;
+    --animate-kid-shake: kid-shake 0.45s ease-in-out;
+    --animate-kid-pop: kid-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --animate-kid-float: kid-float 4s ease-in-out infinite;
+    --animate-piece-move: piece-move 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    --animate-bubble-in: bubble-in 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    --animate-cloud: cloud-drift 38s linear infinite;
+    --animate-cloud-slow: cloud-drift 60s linear -20s infinite;
+    --animate-snow: snow-fall 7s linear infinite;
+    --color-page: var(--page);
+    --color-field: var(--field);
+    --color-hint: var(--hint);
+    --color-link: var(--link);
+    --color-logo: var(--logo);
+    --color-brand-start: var(--brand-start);
+    --color-brand-end: var(--brand-end);
+    --color-hero-start: var(--hero-start);
+    --color-hero-end: var(--hero-end);
+    --color-lime: var(--lime);
+    --color-sun: var(--sun);
+    --color-green-900: var(--green-900);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  button:not(:disabled), [role="button"]:not(:disabled) {
+    cursor: pointer;
+    }
+  html {
+    @apply font-sans;
+    }
+  ::selection {
+    background: color-mix(in oklab, var(--link) 30%, transparent);
+    }
+  input {
+    caret-color: var(--link);
+    }
+}
+
+@keyframes kid-shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+@keyframes kid-pop {
+  0% { transform: scale(0.9); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* chess: a moved piece slides in from its old square (--dx/--dy set inline) */
+@keyframes piece-move {
+  from { translate: var(--dx) var(--dy); }
+}
+
+/* falling snowflake: scene is a size container, height = 1.25 × width */
+@keyframes snow-fall {
+  from { transform: translate(0, -2cqw) rotate(0deg); }
+  50% { transform: translate(3cqw, 62cqw) rotate(120deg); }
+  to { transform: translate(-2cqw, 130cqw) rotate(240deg); }
+}
+
+@keyframes cloud-drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(160cqw); }
+}
+
+@keyframes bubble-in {
+  from { opacity: 0; transform: scale(0.85) translateY(6px); }
+}
+
+@keyframes kid-float {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-10px) rotate(4deg); }
+}
+
+/* ---------------------------------------------------------------- error page rocket
+   Coordinates are in the scene's SVG units (viewBox 0 0 400 560):
+   launch pad at (200, 460), Moon top at (300, 140). */
+@keyframes rocket-trip {
+  0% { transform: translate(200px, 460px); }
+  3% { transform: translate(198px, 460px); }
+  6% { transform: translate(202px, 460px); }
+  9% { transform: translate(198px, 460px); }
+  12% { transform: translate(200px, 460px); }
+  35% { transform: translate(192px, 340px) rotate(-4deg); }
+  55% { transform: translate(200px, 230px) rotate(8deg); }
+  72% { transform: translate(240px, 125px) rotate(40deg); }
+  86% { transform: translate(300px, 108px) rotate(0deg); }
+  100% { transform: translate(300px, 142px) rotate(0deg); }
+}
+@keyframes rocket-flame-on {
+  0%, 8% { opacity: 0; }
+  12%, 86% { opacity: 1; }
+  96%, 100% { opacity: 0; }
+}
+@keyframes rocket-flicker {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(1.35); }
+}
+@keyframes rocket-smoke {
+  0%, 8% { opacity: 0; transform: scale(0.3); }
+  18% { opacity: 0.9; transform: scale(1); }
+  45%, 100% { opacity: 0; transform: scale(2); }
+}
+@keyframes star-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+.rocket-trip { animation: rocket-trip 5s ease-in-out forwards; }
+.rocket-flame { animation: rocket-flame-on 5s linear forwards; }
+.rocket-flicker { transform-box: fill-box; transform-origin: top; animation: rocket-flicker 0.12s ease-in-out infinite; }
+.rocket-smoke { transform-box: fill-box; transform-origin: center; opacity: 0; animation: rocket-smoke 5s ease-out forwards; }
+.star-twinkle { animation: star-twinkle 2.4s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  /* skip straight to the rocket resting on the Moon */
+  .rocket-trip, .rocket-flame, .rocket-smoke { animation-duration: 1ms; }
+  .rocket-flicker, .star-twinkle { animation: none; }
+  .animate-kid-shake, .animate-kid-pop, .animate-kid-float, .animate-piece-move, .animate-bubble-in, .animate-cloud, .animate-cloud-slow, .animate-snow { animation: none; }
+}
+
+/* Sky sidebar: a sunny blue sky in light mode, a starry night sky in dark mode,
+   with a soft glass highlight and a thin light border. Used by every app sidebar. */
+@utility sidebar-glass {
+  background:
+    radial-gradient(ellipse 90% 30% at 100% 0%, rgb(255 236 170 / 0.22), transparent 70%),
+    radial-gradient(ellipse 60% 9% at 20% 96%, rgb(255 255 255 / 0.28), transparent 70%),
+    radial-gradient(ellipse 55% 7% at 85% 99%, rgb(255 255 255 / 0.22), transparent 70%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.06), transparent 40%),
+    linear-gradient(180deg, #1646A0 0%, #1F5FC4 38%, #2F7BDD 72%, #4E9AEA 100%);
+  border: 1px solid rgb(255 255 255 / 0.18);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.18),
+    0 20px 40px -20px rgb(20 50 110 / 0.55);
+  .dark & {
+    background:
+      radial-gradient(ellipse 90% 30% at 100% 0%, rgb(200 210 255 / 0.12), transparent 70%),
+      radial-gradient(1.5px 1.5px at 14% 12%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 42% 22%, #fff 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 70% 30%, #dfe8ff 60%, transparent 61%),
+      radial-gradient(1px 1px at 24% 44%, #fff 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 82% 52%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 10% 66%, #cdd9ff 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 56% 74%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 88% 84%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 34% 90%, #fff 60%, transparent 61%),
+      linear-gradient(180deg, #070B1F 0%, #0F1638 45%, #1C2458 100%);
+    border-color: rgb(255 255 255 / 0.12);
+  }
+}
+
+/* Glowing hairline divider used between sidebar sections. */
+@utility sidebar-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.45) 20%, rgb(255 255 255 / 0.45) 80%, transparent);
+}
+
+/* Sky top bar – same sky as the sidebar (clouds by day, stars at night).
+   Put `dark` on the element too so its content uses dark-mode colors. */
+@utility navbar-glass {
+  background:
+    radial-gradient(ellipse 40% 120% at 100% 0%, rgb(255 236 170 / 0.2), transparent 70%),
+    radial-gradient(ellipse 12% 55% at 70% 80%, rgb(255 255 255 / 0.16), transparent 70%),
+    linear-gradient(180deg, rgb(255 255 255 / 0.07), rgb(0 0 0 / 0.06)),
+    linear-gradient(100deg, #1646A0 0%, #1F5FC4 45%, #2F7BDD 80%, #4E9AEA 100%);
+  border: 1px solid rgb(255 255 255 / 0.18);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.16),
+    0 16px 32px -20px rgb(20 50 110 / 0.5);
+  color: var(--foreground);
+  :where(.dark) & {
+    background:
+      radial-gradient(1px 1px at 22% 30%, #fff 60%, transparent 61%),
+      radial-gradient(1.5px 1.5px at 48% 70%, #fff 60%, transparent 61%),
+      radial-gradient(1px 1px at 63% 25%, #dfe8ff 60%, transparent 61%),
+      radial-gradient(1px 1px at 80% 65%, #fff 60%, transparent 61%),
+      linear-gradient(100deg, #070B1F 0%, #0F1638 50%, #1C2458 100%);
+    border-color: rgb(255 255 255 / 0.12);
+  }
+}
+
+/* Big sky scene for the sign-in panel: brighter day sky / deep night sky. */
+@utility sky-panel {
+  background: linear-gradient(180deg, #1850B4 0%, #2A73D8 45%, #5AA7EE 80%, #A9D6FB 100%);
+  .dark & {
+    background: linear-gradient(180deg, #050818 0%, #0D1435 45%, #1A2156 80%, #2A2F6E 100%);
+  }
+}
+
+/* Themed, thin scrollbars */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--muted-foreground) 45%, transparent) transparent;
+  }
+}
+
+/* Scroll-reveal: show content immediately when the user prefers less motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    translate: none !important;
+    scale: none !important;
+    transition: none !important;
+  }
+}
+
+/* Chess pieces: fonts that are known to include the chess symbols */
+@utility chess-glyph {
+  font-family: "Segoe UI Symbol", "DejaVu Sans", "Noto Sans Symbols 2", "Apple Symbols", serif;
+}
