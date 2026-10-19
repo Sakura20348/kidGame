@@ -198,7 +198,7 @@ export function NewProjectDialog({
           onKeyDown={(e) => {
             if (step === 2 && e.key === "Enter" && (e.target as HTMLElement).tagName === "INPUT") e.preventDefault()
           }}
-          className="mt-2 space-y-5"
+          className="mt-2 min-w-0 space-y-5"
         >
           {step === 1 ? (
           <>

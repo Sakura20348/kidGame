@@ -19,8 +19,8 @@ _db.executescript(
         id            TEXT PRIMARY KEY COLLATE NOCASE,  -- teacher email or 6-digit student ID
         name          TEXT NOT NULL,
         role          TEXT NOT NULL CHECK (role IN ('student', 'teacher')),
-        grade         INTEGER,                          -- students: school class 0–11
-        age_group     TEXT,                             -- "Class 4–6", "Adults" …
+        grade         INTEGER,                          -- students: school class 0–4
+        age_group     TEXT,                             -- "Class 2" (older accounts: a range like "Class 0–3")
         school        TEXT,
         password_hash TEXT,                             -- scrypt
         legacy_hash   TEXT,                             -- old browser-made SHA-256, upgraded on next sign-in

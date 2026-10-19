@@ -59,7 +59,7 @@ export function TaskBuilder({ tasks, onChange, error, startPicking, ageGroup }: 
   }
 
   return (
-    <div className="rounded-[18px] border border-border p-4 sm:p-5">
+    <div className="min-w-0 rounded-[18px] border border-border p-4 sm:p-5">
       <div className="flex items-center justify-between gap-3">
         <p className="text-sm font-bold text-foreground">
           Tasks <span className="font-normal text-muted-foreground">· {tasks.length} made</span>
@@ -80,14 +80,16 @@ export function TaskBuilder({ tasks, onChange, error, startPicking, ageGroup }: 
         ) : (
           <ol className="mt-3 space-y-2">
             {tasks.map((t, i) => (
-              <li key={t.id} className="flex items-center gap-3 rounded-[12px] bg-muted/50 px-3 py-2.5">
+              <li key={t.id} className="flex min-w-0 items-center gap-3 rounded-[12px] bg-muted/50 px-3 py-3">
                 <span className="text-sm font-bold text-muted-foreground tabular-nums">{i + 1}</span>
                 <span aria-hidden className="text-xl">
                   {kindInfo(t.kind).emoji}
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className="block text-xs font-semibold text-muted-foreground">{kindInfo(t.kind).name}</span>
-                  <span className="block truncate text-[15px] text-foreground">{taskSummary(t)}</span>
+                  <span className="mt-0.5 line-clamp-2 text-[15px] leading-snug break-words text-foreground" title={taskSummary(t)}>
+                    {taskSummary(t)}
+                  </span>
                 </span>
                 <Button type="button" variant="ghost" size="icon-sm" aria-label="Edit task" onClick={() => { setDraft(t); setMode("edit") }}>
                   <HugeiconsIcon icon={Edit02Icon} className="size-4" />

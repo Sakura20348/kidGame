@@ -37,7 +37,7 @@ function Panel() {
           <span className="leading-none">
             <span className="block text-2xl font-semibold tracking-tight">LittleReaderLab Kids</span>
             <span className="mt-1 inline-block rounded-full bg-[#6C63FF] px-2 py-0.5 text-xs font-semibold text-white">
-              Class 0–11
+              Class 0–4
             </span>
           </span>
         </Link>
